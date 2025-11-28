@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-cream-50 text-gray-800;
+    font-family: 'Playfair Display', 'Georgia', serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-rose-gold-400 via-rose-gold-500 to-rose-gold-600 bg-clip-text text-transparent;
+  }
+  
+  .bg-gradient-rose {
+    @apply bg-gradient-to-br from-cream-50 via-rose-gold-50 to-cream-100;
+  }
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-cream-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-rose-gold-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-rose-gold-400;
+}
+

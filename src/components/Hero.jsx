@@ -1,0 +1,86 @@
+import { motion } from 'framer-motion'
+import { FaChevronDown } from 'react-icons/fa'
+
+const Hero = ({ onEnter }) => {
+  const scrollToNext = () => {
+    const nextSection = document.querySelector('#about-us')
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' })
+      onEnter()
+    }
+  }
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-rose overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5"></div>
+      
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="text-center z-20 px-4"
+      >
+        <motion.div
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mb-8"
+        >
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gradient mb-4 font-elegant">
+            Ming
+          </h1>
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: '100%' }}
+            transition={{ duration: 1, delay: 1 }}
+            className="h-1 bg-gradient-to-r from-transparent via-rose-gold-400 to-transparent mx-auto mb-4"
+            style={{ maxWidth: '200px' }}
+          />
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gradient font-elegant">
+            & Xin
+          </h1>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.2 }}
+          className="text-xl md:text-2xl text-rose-gold-600 mb-12 font-light tracking-wider"
+        >
+          2025.10.20
+        </motion.p>
+
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.5 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={scrollToNext}
+          className="px-8 py-4 bg-gradient-to-r from-rose-gold-400 to-rose-gold-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all font-medium text-lg"
+        >
+          开启邀请函
+        </motion.button>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 2 }}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="cursor-pointer"
+          onClick={scrollToNext}
+        >
+          <FaChevronDown className="text-rose-gold-400 text-2xl" />
+        </motion.div>
+      </motion.div>
+    </section>
+  )
+}
+
+export default Hero
+
